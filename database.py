@@ -14,3 +14,6 @@ url_object = URL.create(
 
 engine = create_engine(url_object)
 meta = MetaData()
+
+def get_connect():
+    return engine.connect()
