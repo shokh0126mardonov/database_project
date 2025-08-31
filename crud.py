@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import Connection
+from sqlalchemy import Connection,select
 from sqlalchemy import Insert
 from models import tasks
 
@@ -26,3 +26,17 @@ def create_task(
         conn.rollback()
     finally:
         conn.close()
+
+def get_task(conn: Connection):
+    result = []
+    
+    try:
+        cuery = select(tasks)
+        result = conn.execute(cuery)
+        conn.commit
+    except Exception as e:
+        print(e)
+    finally:
+        conn.close()
+        
+    return result 
