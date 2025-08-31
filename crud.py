@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import Connection,select
+from sqlalchemy import Connection,select,delete
 from sqlalchemy import Insert
 from models import tasks
 
@@ -40,3 +40,18 @@ def get_task(conn: Connection):
         conn.close()
         
     return result 
+
+def delete_task(
+        conn: Connection,task_id
+    ):
+    
+    try:
+        query = delete(tasks).where(tasks.c.id == task_id)
+        conn.execute(query)
+        conn.commit()
+        
+    except Exception as e:
+        print(e)
+        conn.rollback()
+    finally:
+        conn.close()

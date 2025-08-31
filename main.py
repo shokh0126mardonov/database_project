@@ -1,7 +1,7 @@
 from datetime import datetime
 from database import engine,meta,get_connect
 import models
-from crud import create_task,get_task
+from crud import create_task,get_task,delete_task
 meta.create_all(engine)
 
 def add_task():
@@ -15,3 +15,10 @@ def show_task():
     result = get_task(get_connect())
     for i in result:
         print(i)
+
+def remove_task():
+    task_id = int(input("task_id ni kiriting: "))
+    delete_task(get_connect(),task_id)
+    print("task o'chirildi")
+    
+    
