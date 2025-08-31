@@ -15,5 +15,3 @@ tasks = Table(
     Column("due_date" , DateTime , default = datetime.now)
 
 )
-
-meta.create_all(engine)

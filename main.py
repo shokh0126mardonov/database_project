@@ -1,4 +1,4 @@
-from database import engine
+from database import engine,meta
+import models
 
-conn = engine.connect()
-print(conn.engine)
+meta.create_all(engine)
