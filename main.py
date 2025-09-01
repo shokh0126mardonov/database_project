@@ -26,3 +26,6 @@ def edit_task():
     update_task(get_connect(),task_id,title="Edited task")
     
 edit_task()
+
+# add_task()
+# show_task()

@@ -72,7 +72,8 @@ def update_task(
         query = update(tasks).where(tasks.c.id == task_id).values(
             title = title or task[1],
             description = description or task[2],
-            due_date = due_date or task[4]
+            due_date = due_date or task[4],
+            updated_at = datetime.now()
         )
         
         

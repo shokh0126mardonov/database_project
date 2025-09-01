@@ -12,7 +12,8 @@ tasks = Table(
     Column("description" , String),
     Column("completed" , Boolean , default = False,nullable=False),
     Column("created_at" , DateTime , default = datetime.now),
-    Column("due_date" , DateTime , default = datetime.now)
+    Column("due_date" , DateTime , default = datetime.now),
+    Column("updated_at",DateTime,default=datetime.now)
 
 )
 
